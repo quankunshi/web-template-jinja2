@@ -1,0 +1,21 @@
+body{
+ margin: auto;
+}
+.navbar-search{
+    background-color: rgb(238, 241, 245);
+}
+
+.box-icon-upload{
+    width: 28px;
+    height: 28px;
+    margin-bottom: 8px;
+}
+
+.icon-upload:hover{
+    color: rgb(41, 146, 221);
+}
+
+.btn-input-modal{
+    border: none;
+    box-shadow: none;
+}
