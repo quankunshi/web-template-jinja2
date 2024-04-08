@@ -15,7 +15,7 @@
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Sentiment Analysis</a>
               <form class="navbar-search w-50 me-3">
-                <input type="search" class="form-control" placeholder="https://vnexpress.net/kinh-doanh" aria-label="url" >
+                <input id="url" type="search" class="form-control" placeholder="https://vnexpress.net/kinh-doanh" aria-label="url" >
               </form>
               <button type="button" class="btn sadow-none border-0 p-0 pe-3" data-bs-toggle="modal" data-bs-target="#input-modal">
                 <a class="bi bi-cloud-arrow-up-fill h2 icon-upload"></a>
@@ -25,6 +25,14 @@
         </nav>
 
         <div class="container-content">
+  
+          <div id="spinner" style="display: none;">
+            <div class="spinner-border text-success" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+           
+          
           <div class="p-3">
             <div class="first-row d-flex w-100 ">
               <div class="summarize-box "style="width: 72%;">
@@ -69,6 +77,23 @@
         chart.draw(data, options);
       }
       </script>
+    <script>
+      const input = document.getElementById('url');
+      const spinners = document.getElementById('spinner');
+
+      input.addEventListener('keypress', function(event) {
+        // Kiểm tra xem phím đã nhấn có phải là "Enter" không
+        event.preventDefault();
+        if (event.key === 'Enter') {
+          spinners.style.display='block';
+          // Xóa div sau 23 giây
+          setTimeout(function() {
+            spinners.style.display='none';
+          }, 23000); // 23 giây
+        }
+      });
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
